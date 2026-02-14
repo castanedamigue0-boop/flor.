@@ -6,8 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa_roja🌹</title>
 
-    <!-- ✅ Conexión al CSS -->
     <link rel="stylesheet" href="Anima.css">
+
+    <style>
+        body {
+            background: #6a0dad; 
+            margin: 0;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .jarron {
+            display: inline-block;
+            padding: 30px;
+            border: 4px solid white;
+            border-radius: 50% 50% 40% 40%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            margin-top: 30px;
+        }
+
+        .imagen {
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .imagen:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 
 <body>
@@ -32,23 +60,30 @@
             <div class="flower__sparkle"></div>
         </div>
 
-        <div class="flower">
-            <img class="imagen" src="https://i.pinimg.com/originals/4d/80/56/4d80564c89721f9a75cd1df36e42a467.gif">
+      
+            <img class="imagen" 
+                 src="https://i.pinimg.com/originals/4d/80/56/4d80564c89721f9a75cd1df36e42a467.gif" 
+                 id="activarAudio">
         </div>
     </div>
 
-    <audio id="musica" src="Bad Bunny - BAILE INoLVIDABLE - Letra.mp3"></audio>
+    
+    <audio id="musica">
+        <source src="Redimi2-El-Nombre-de-Jesús-_Video-Oficial_-ft.-Christine-D_Clario.mp3"audio/mp3">
+    </audio>
 
     <script>
         const frases = [
-            "Amarte es mi parte favorita del día ❤️",
-            "Tu sonrisa ilumina todo lo que soy ✨",
-            "Contigo todo es más bonito 🌸",
-            "Eres mi razón, mi paz y mi todo 🫶",
-            "Si tú estás, todo vale la pena 💝",
-            "Mi corazón late más fuerte por ti 💝",
-            "Eres mi lugar favorito en el mundo 🌷",
-            "No sabía qué era el amor… hasta que te conocí 💝"
+            "eres mi heroe todos los dias ❤️",
+            "gracias por enseñarme a ser fuerte ✨",
+            "siempre me inspiras a seguir adelante🌸",
+            "tu amor me da seguridad y calma 🫶",
+            "eres mi primer ejemplo de valentia 💝",
+            "gracias por tus abrasos y consejos  💝",
+            "me siento afortunado de ser tu hijo 🌷",
+            "eres mi protector y mi guia  💝",
+            "tu paciencia me hace mejor perona ",
+            "te amo papa",
         ];
 
         let i = 0;
@@ -65,22 +100,11 @@
             }, 300);
         }, 3000);
 
-        document.addEventListener('click', () => {
-            const audio = document.getElementById('musica');
-            if (audio && audio.paused) {
-                audio.play().catch(() => {});
-            }
-        }, { once: false });
+        const imagen = document.getElementById("activarAudio");
+        const audio = document.getElementById("musica");
 
-        document.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
-
-            const flor = document.createElement('div');
-            flor.className = 'mini-flor';
-            flor.style.left = `${e.clientX}px`;
-            flor.style.top = `${e.clientY}px`;
-            document.body.appendChild(flor);
-            setTimeout(() => flor.remove(), 1000);
+        imagen.addEventListener("click", function() {
+            audio.play();
         });
     </script>
 
